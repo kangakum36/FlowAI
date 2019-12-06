@@ -2,7 +2,7 @@
 AI project for Flow Cytometry Analysis
 
 All of the data in the files we process is de-identified, meaning there is nothing in the files that links the data to the patient.  However, in the interest of being ultra-cautious and HIPPA compliant, we will not be
-pushing the testcases(patient files) to github.  If you would like them, contact us and we will go through the proper channels to get you access.
+pushing the testcases (patient files) to github.  If you would like them, contact us and we will go through the proper channels to get you access.
 
 # Data Processing:
 We start by using FlowCytometryTools (https://eyurtsev.github.io/FlowCytometryTools/install.html) to convert fcs files to pandas dataframes and then numpy arrays.
