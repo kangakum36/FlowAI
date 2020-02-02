@@ -11,4 +11,4 @@ Then, using the James A Haley Veterans Hospital's Flow Cytometry spreadsheet, we
 Then using fancyimpute's (https://github.com/iskandr/fancyimpute) softimpute algorithm, which is meant for large, sparsely populated matrices (ours are 10^6 x 33, with 39.4% or 10^7 observed entries) , we impute the missing data into each's patients array.
 
 # Training using Keras:
-Using Keras, we built an ANN with 3 deep layers which currently has an accuracy of 78%.
+Using Keras, we built an ANN with 3 deep layers which currently has an accuracy of 79%.
