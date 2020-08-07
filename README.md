@@ -1,4 +1,4 @@
-### Organization updates to this repo and additional models coming soon.
+### Organization updates to this repo and additional models coming soon
 
 # FlowAI
 AI project for Flow Cytometry Analysis
