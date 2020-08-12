@@ -5,10 +5,15 @@ AI project for Flow Cytometry Analysis </br>
 
 This project is aimed at classifying flow cytometry data from 116 patients as either CLL (Chronic Lymphocytic Leukemia) or non-CLL using various Machine Learning methods.  Data is provided by the James A. Haley VA in collaboration with Drs. Andrew Borkowski, Phil Foulis, and Loveleen Kang.</br>
 
-## Prerequisites
+## Prerequisites and Setup
+These steps have been tested on macOS 10.15 (Catalina)
 Make sure you have python and pip installed: For Mac, first [install homebrew](https://brew.sh/) and then
 ```
 brew install python3
+```
+Also make sure you have virtualenv installed: </br>
+```
+python3 -m pip install --user virtualenv
 ```
 ## Using the Repo
 First clone the repo:</br>
