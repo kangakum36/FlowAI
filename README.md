@@ -3,14 +3,12 @@
 # FlowAI
 AI project for Flow Cytometry Analysis
 
-All of the data in the files we process is de-identified, meaning there is nothing in the files that links the data to the patient.  However, in the interest of being ultra-cautious and HIPPA compliant, we will not be
-pushing the testcases (patient files) to github.  If you would like them, contact us and we will go through the proper channels to get you access.
+This project is aimed at classifying flow cytometry data from 116 patients as either CLL (Chronic Lymphocytic Leukemia) or non-CLL using various Machine Learning methods.  Data is provided by the James A. Haley VA in collaboration with Drs. Andrew Borkowski, Phil Foulis, and Loveleen Kang.
 
-# Data Processing:
-We start by using FlowCytometryTools (https://eyurtsev.github.io/FlowCytometryTools/install.html) to convert fcs files to pandas dataframes and then numpy arrays.
-Then, using the James A Haley Veterans Hospital's Flow Cytometry spreadsheet, we match each tube's flourochromes with the corresponding antibodies.  As a result, we are able to generate a numpy array for each patient.
 
-Then using fancyimpute's (https://github.com/iskandr/fancyimpute) softimpute algorithm, which is meant for large, sparsely populated matrices (ours are 10^6 x 33, with 39.4% or 10^7 observed entries) , we impute the missing data into each's patients array.
-
-# Training using Keras:
-Using Keras, we built an ANN with 3 deep layers which currently has an accuracy of 79%.
+## Using the Repo
+First clone the repo:
+'''
+git clone https://github.com/kangakum36/FlowAI.git
+'''
+Currently, the only way to get access to the data is by emailing me (kangakum [at] gmail [dot] com) for access to a google drive containing the case data.  Once you have access
