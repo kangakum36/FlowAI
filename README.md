@@ -15,21 +15,26 @@ Also make sure you have virtualenv installed: </br>
 ```
 python3 -m pip install --user virtualenv
 ```
-## Using the Repo
-First clone the repo:</br>
+
+Next clone the repo:</br>
 ```
 git clone https://github.com/kangakum36/FlowAI.git
 ```
-Currently, the only way to get access to the data is by emailing me (kangakum [at] gmail [dot] com) for access to a google drive containing the case data.  Once you have access: </br>
-
+Make a new virtual environment and activate it
 ```
 cd FlowAI
-mkdir data
-mv <location of FlowCasesDeidentify120519 folder> /data
+python3 -m venv FlowAI
+source FlowAI/bin/activate
 ```
 Next install requirements</br>
 ```
 pip3 install -r requirements.txt
+```
+
+Currently, the only way to get access to the data is by emailing me (kangakum [at] gmail [dot] com) for access to a google drive containing the case data.  Once you have access: </br>
+```
+mkdir data
+mv <location of FlowCasesDeidentify120519 folder> /data
 ```
 
 ## Making a new model
