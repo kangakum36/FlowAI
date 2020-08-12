@@ -34,6 +34,6 @@ To test a model on the data, </br>
 ```
 python3 -W ignore main.py -m [model tag]
 ```
-Current model tags are 'rfc': Random Forest Classifier, dtc: Decision Tree Classifier, nn: Keras Neural Net
+Current model tags are 'rfc': Random Forest Classifier, 'dtc': Decision Tree Classifier, 'nn': Keras Neural Net
 
 Our best accuracy to date is the Random Forest Classifier with 83% test accuracy.
