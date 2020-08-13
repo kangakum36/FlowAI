@@ -31,7 +31,7 @@ Next install requirements</br>
 pip3 install -r requirements.txt
 ```
 
-Currently, the only way to get access to the data is by emailing me (kangakum [at] gmail [dot] com) for access to a google drive containing the case data.  Once you have access: </br>
+Currently, the only way to get access to the data is by emailing me (kangakum [at] gmail [dot] com) for access to a google drive containing the case data.  Once you have access, in the FlowAI folder enter: </br>
 ```
 mkdir data
 mv <location of FlowCasesDeidentify120519 folder> /data
