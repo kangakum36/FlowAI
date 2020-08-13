@@ -64,4 +64,4 @@ python3 -W ignore main.py -m [model tag] -p load
 This way you don't have to wait for the data to be processed every time </br>
 
 ## Results
-Our best accuracy to date is using Random Forest Classifier with an average test accuracy of 83%.
+Best average accuracy: Random Forest Classifier - 83%
