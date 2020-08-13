@@ -38,7 +38,7 @@ mv <location of FlowCasesDeidentify120519 folder> /data
 ```
 
 ## Making a new model
-1. In the Models folder, create a new file (e.g. `<your_model_name>.py`).  Create a class for your model that implements `BaseModel`.
+1. In the Models folder, create a new file (e.g. `<your_model_name>.py`).  Create a class for your model that inherits `BaseModel`.
 2. Override the train and test functions.</br>
 3. In `main.py`, add an abbreviation for your model to the choices for valid abbreviations in the `parse_args` method.</br>
 4. In the main method, there is a series of cascading if statements.  Add your model to this series and do any necessary data processing and training.
