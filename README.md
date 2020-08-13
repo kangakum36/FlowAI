@@ -36,7 +36,6 @@ Currently, the only way to get access to the data is by emailing me (kangakum [a
 mkdir data
 mv <location of FlowCasesDeidentify120519 folder> /data
 ```
-
 ## Making a new model
 1. In the Models folder, create a new file (e.g. `<your_model_name>.py`).  Create a class for your model that inherits `BaseModel`.
 2. Override the train and test functions.</br>
@@ -48,6 +47,19 @@ To test a model on the data, </br>
 ```
 python3 -W ignore main.py -m [model tag]
 ```
+You should see the an output similar to the following
+```
+Selected model accuracy is: 0.875
+```
+
 Current model tags are 'rfc': Random Forest Classifier, 'dtc': Decision Tree Classifier, 'nn': Keras Neural Net
 
-Our best accuracy to date is the Random Forest Classifier with 83% test accuracy.
+Once you train/test a model once, the processed dataset will be placed in a pickle (`.p`) file in the `data` folder. </br>
+Using the `-p` flag on subsequent model tests will load the dataset from the saved file like so:</br>
+```
+python3 -W ignore main.py -m [model tag] -p load
+```
+This way you don't have to wait for the data to be processed every time </br>
+
+## Results
+Our best accuracy to date is using Random Forest Classifier with an average test accuracy of 83%.
