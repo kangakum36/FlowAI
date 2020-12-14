@@ -2,27 +2,34 @@ from models.base_model import BaseModel
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import Dropout
+from keras.layers import Conv1D
+from keras.layers import MaxPooling1D
+from keras.layers import Flatten
 from sklearn.model_selection import StratifiedKFold
 import numpy as np
 
-class NeuralNet(BaseModel):
+class ConvNet(BaseModel):
 
     def __init__(self, dataset: np.ndarray, labels: np.ndarray):
         super().__init__(dataset, labels)
-        self.model = None
-        
+        self.model = None;
 
     def gen_model(self):
         model = Sequential()
-        model.add(Dense(30, input_dim=520000, activation='relu'))
+        model.add(Conv1D(16, 3, activation='relu', input_shape = self.X_train.shape[1:]))
+        model.add(Conv1D(16, 3, activation='relu'))
+        model.add(MaxPooling1D(pool_size=2, strides=2))
+        model.add(Flatten())
+        model.add(Dense(30, activation='relu'))
         model.add(Dropout(0.05))
         model.add(Dense(20, input_dim=30, activation='relu'))
+        model.add(Dropout(0.05))
         model.add(Dense(10, input_dim=20, activation='relu'))
         model.add(Dense(1, activation='relu'))
         return model
 
     def test(self):
-        accuracy = self.crossval(40, self.X_train, self.y_train, self.X_test, self.y_test)
+        accuracy = self.crossval(100, self.X_train, self.y_train, self.X_test, self.y_test)
         return accuracy
 
     def crossval(self, n_epochs, X_train, y_train, X_test, y_test, filename = None):
@@ -52,4 +59,7 @@ class NeuralNet(BaseModel):
         self.model = bestmodel
         return test_acc
 
-    
+       
+
+
+        

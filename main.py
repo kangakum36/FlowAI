@@ -4,9 +4,10 @@ from utils.data_process import DataProcess
 from models.random_forest_classifier import RandomForestModel
 from models.decision_tree_classifier import DecisionTreeModel
 from models.neural_net import NeuralNet
+from models.conv_net import ConvNet
 
 def parse_args(parser):
-    parser.add_argument('-m', '--model', type = str, choices=['rfc', 'dtc', 'nn'], help = "specify a model type", required = True)
+    parser.add_argument('-m', '--model', type = str, choices=['rfc', 'dtc', 'nn', 'cnn'], help = "specify a model type", required = True)
     parser.add_argument('-p', '--pickle', type = str, choices=['load'], help = "specify to use pickled files")
     args = parser.parse_args()
     return args
@@ -19,17 +20,22 @@ if __name__ == "__main__":
     model = None
     dataset = None
     labels = None
+    conv_dataset = None
+    accuracy = 0
 
     if(args.pickle != None):
         dataset = pickle.load( open( "data/dataset.p", "rb" ))
         labels = pickle.load( open( "data/labels.p", "rb" ))
+        conv_dataset = pickle.load( open( "data/conv_dataset.p", "rb" ))
 
     else:
         files_path = 'data/FlowCasesDeidentify120519'
         dp = DataProcess(files_path)
         dp.data_process()
+        dp.conv_process()
         dataset = dp.dataset
         labels = dp.labels
+        conv_dataset = dp.conv_dataset
 
     
 
@@ -45,8 +51,11 @@ if __name__ == "__main__":
 
     elif model_tag == 'nn':
         model = NeuralNet(dataset, labels)
-        model.train()
         accuracy = model.test()
+    elif model_tag == 'cnn':
+        model = ConvNet(conv_dataset, labels)
+        accuracy = model.test()
+
 
 
     print("Selected model accuracy is: " + str(accuracy))
