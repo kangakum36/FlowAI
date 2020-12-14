@@ -1,0 +1,15 @@
+#PBS -N flowai_models           # job name
+#PBS -A GT-aa23               # account to which job is charged
+#PBS -l nodes=2:ppn=4:gpus=2:exclusive_process           # number of nodes and cores per node required
+#PBS -l pmem=17gb                # memory per core
+#PBS -l walltime=15:00          # duration of the job (ex: 15 min)
+#PBS -j oe                      # combine output and error messages into 1 file
+#PBS -o results.out       # output file name
+
+echo "Started on `/bin/hostname`"
+cd ~/scratch/FlowAI/
+module purge
+module load tensorflow-gpu/2.0.0
+> results.out
+conda activate FlowAI
+python3 -W ignore main.py -m rfc
