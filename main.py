@@ -5,9 +5,10 @@ from models.random_forest_classifier import RandomForestModel
 from models.decision_tree_classifier import DecisionTreeModel
 from models.neural_net import NeuralNet
 from models.conv_net import ConvNet
+from models.xgb import XGB
 
 def parse_args(parser):
-    parser.add_argument('-m', '--model', type = str, choices=['rfc', 'dtc', 'nn', 'cnn'], help = "specify a model type", required = True)
+    parser.add_argument('-m', '--model', type = str, choices=['rfc', 'dtc', 'nn', 'cnn', 'xgb'], help = "specify a model type", required = True)
     parser.add_argument('-p', '--pickle', type = str, choices=['load'], help = "specify to use pickled files")
     args = parser.parse_args()
     return args
@@ -52,9 +53,18 @@ if __name__ == "__main__":
     elif model_tag == 'nn':
         model = NeuralNet(dataset, labels)
         accuracy = model.test()
+
     elif model_tag == 'cnn':
         model = ConvNet(conv_dataset, labels)
         accuracy = model.test()
+
+    elif model_tag == 'xgb':
+        model = XGB(dataset, labels)
+        # model.train()
+        # accuracy = model.test()
+        model.crossval()
+
+
 
 
 
