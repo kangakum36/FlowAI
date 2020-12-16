@@ -38,7 +38,6 @@ if __name__ == "__main__":
         labels = dp.labels
         conv_dataset = dp.conv_dataset
 
-    
 
     if model_tag == 'rfc':
         model = RandomForestModel(dataset, labels)
