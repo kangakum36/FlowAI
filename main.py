@@ -15,6 +15,7 @@ def parse_args(parser):
 
 
 if __name__ == "__main__":
+    print("Starting")
     parser = argparse.ArgumentParser()
     args = parse_args(parser)
     model_tag = args.model
@@ -31,6 +32,7 @@ if __name__ == "__main__":
 
     else:
         files_path = 'data/FlowCasesDeidentify120519'
+        print("Starting Data Process")
         dp = DataProcess(files_path)
         dp.data_process()
         dp.conv_process()
@@ -59,10 +61,10 @@ if __name__ == "__main__":
 
     elif model_tag == 'xgb':
         model = XGB(dataset, labels)
-        # model.train()
-        # accuracy = model.test()
-        model.crossval()
-
+        #model.train()
+        #accuracy = model.test()
+        #model.crossval()
+        model.gridSearch()
 
 
 
