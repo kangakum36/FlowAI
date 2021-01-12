@@ -31,12 +31,14 @@ Next install requirements</br>
 pip3 install -r requirements.txt
 ```
 
-Currently, the only way to get access to the data is by emailing me (kangakum [at] gmail [dot] com) for access to a google drive containing the case data.  Although we have deidentified the data so it contains no information about the patients, we are trying to be **extremely careful** in regulating access. </br>
+Currently, the only way to get access to the data is by emailing me (kangakum [at] gmail [dot] com) for access to a gcp storage bucket.  Although we have deidentified the data so it contains no information about the patients, we are trying to be **extremely careful** in regulating access. </br>
 
-Once you have access, in the FlowAI folder enter: </br>
+Once you have access, install the cloud SDK at this link: https://cloud.google.com/sdk/docs/install </br>
+Then follow the instructions at this link, selecting the flowai project when prompted https://cloud.google.com/sdk/docs/initializing </br>
+Finally, run the following commands </br>
 ```
-mkdir data
-mv <location of FlowCasesDeidentify120519 folder> /data
+chmod +x ./scripts/download_data.sh
+./scripts/download_data.sh
 ```
 ## Making a new model
 1. In the Models folder, create a new file (e.g. `<your_model_name>.py`).  Create a class for your model that inherits `BaseModel`.
@@ -63,5 +65,7 @@ python3 -W ignore main.py -m [model tag] -p load
 ```
 This way you don't have to wait for the data to be processed every time </br>
 
-## Results
-Best average accuracy: Random Forest Classifier - 83%
+## Results and Remarks
+Currently, we have implemented cross validation for the XGB and 1D-Convolutional Neural Network Models. </br>
+Additionally, we have grid-searched hyperparameters for the XGB model, as it was the most promising in initial tests. </br>
+Best average accuracy: Gradient Boosted Classifier (XGB) - 80% (F1 Score also 0.8)
