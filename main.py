@@ -69,5 +69,5 @@ if __name__ == "__main__":
 
 
 
-    print("Selected model accuracy is: " + str(accuracy))
+    # print("Selected model accuracy is: " + str(accuracy))
 

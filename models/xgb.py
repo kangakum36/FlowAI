@@ -30,7 +30,7 @@ class XGB(BaseModel):
            'precision' : make_scorer(precision_score),
            'recall' : make_scorer(recall_score), 
            'f1_score' : make_scorer(f1_score)}
-        kfold = StratifiedKFold(n_splits=10, random_state=7)
+        kfold = StratifiedKFold(n_splits=10, random_state=7, shuffle=True)
         results = cross_validate(self.model, self.dataset, self.labels, cv=kfold, scoring=scoring)
         print(results)
 
