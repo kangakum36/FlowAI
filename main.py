@@ -61,10 +61,10 @@ if __name__ == "__main__":
 
     elif model_tag == 'xgb':
         model = XGB(dataset, labels)
-        #model.train()
-        #accuracy = model.test()
-        #model.crossval()
-        model.gridSearch()
+        model.train()
+        accuracy = model.test()
+        model.crossval()
+        # model.gridSearch()
 
 
 

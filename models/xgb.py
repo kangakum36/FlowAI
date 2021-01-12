@@ -12,7 +12,7 @@ class XGB(BaseModel):
 
     def __init__(self, dataset: np.ndarray, labels: np.ndarray):
         super().__init__(dataset, labels)
-        self.model = XGBClassifier()
+        self.model = XGBClassifier(max_depth=3)
         self.dataset = dataset
         self.labels = labels
     
@@ -48,7 +48,7 @@ class XGB(BaseModel):
         search_space = [
                         {"n_estimators": [100, 200, 300, 400], 
                          "max_depth": [3, 4, 5, 6],
-                         "learning_rate": [0.3, 0.1, 0.01],
+                         "learning_rate": [0.3, 0.1, 0.01, 1.0],
                          "colsample_bytree": [1.0, 0.9]}
                         ]
         grid = GridSearchCV(estimator=self.model, param_grid = search_space, cv=kfold, scoring='accuracy', verbose=1)
