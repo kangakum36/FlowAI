@@ -30,7 +30,13 @@ Next install requirements</br>
 ```
 pip3 install -r requirements.txt
 ```
+Finally, you have to install libomp for xgboost to work, 
+```
+brew install libomp
+```
 
+
+## Data Download
 Currently, the only way to get access to the data is by emailing me (kangakum [at] gmail [dot] com) for access to a gcp storage bucket.  Although we have deidentified the data so it contains no information about the patients, we are trying to be **extremely careful** in regulating access. </br>
 
 Once you have access, just run
@@ -50,11 +56,12 @@ Next run
 ```
 gcloud components update
 ```
-Finally, run the following commands </br>
+Finally, run the following commands (you must have the gcloud tools added to your path or the download data script will not run) </br>
 ```
 chmod +x ./scripts/download_data.sh
 mkdir data
-./scripts/download_data.sh
+cd scripts
+./download_data.sh
 ```
 ## Making a new model
 1. In the Models folder, create a new file (e.g. `<your_model_name>.py`).  Create a class for your model that inherits `BaseModel`.
