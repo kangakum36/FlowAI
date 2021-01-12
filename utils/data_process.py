@@ -5,7 +5,6 @@ import os
 from FlowCytometryTools import FCMeasurement
 import pickle
 import gc
-import nmslib
 
 class DataProcess():
     ''' Class for Data Cleaning
