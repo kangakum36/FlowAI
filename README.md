@@ -33,11 +33,27 @@ pip3 install -r requirements.txt
 
 Currently, the only way to get access to the data is by emailing me (kangakum [at] gmail [dot] com) for access to a gcp storage bucket.  Although we have deidentified the data so it contains no information about the patients, we are trying to be **extremely careful** in regulating access. </br>
 
-Once you have access, install the cloud SDK at this link: https://cloud.google.com/sdk/docs/install </br>
-Then follow the instructions at this link, selecting the flowai project when prompted https://cloud.google.com/sdk/docs/initializing </br>
+Once you have access, just run
+```
+brew install google-cloud-sdk
+```
+The installer will print some commands you should put in your bash profile or zsh config file, so that you can run ```gcloud``` commands from the command line.  It should look like: 
+```
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc)
+```
+Make sure you have successfully added ```gcloud``` to your path, and run
+```
+gcloud init
+```
+Select the flowai project when prompted, you should already have access if you are at this step.
+Next run
+```
+gcloud components update
+```
 Finally, run the following commands </br>
 ```
 chmod +x ./scripts/download_data.sh
+mkdir data
 ./scripts/download_data.sh
 ```
 ## Making a new model
