@@ -71,7 +71,7 @@ You should see the an output similar to the following
 Selected model accuracy is: 0.875
 ```
 
-Current model tags are 'xgb': Gradient Boosted RF Classifier, 'dtc': Decision Tree Classifier, 'nn': Keras Conv Neural Net
+Current model tags are 'xgb': Gradient Boosted RF Classifier, 'dtc': Decision Tree Classifier, 'nn': Vanilla Neural Net, 'cnn': Convolutional NN
 
 Once you train/test a model once, the processed dataset will be placed in a pickle (`.p`) file in the `data` folder. </br>
 Using the `-p` flag on subsequent model tests will load the dataset from the saved file like so:</br>
