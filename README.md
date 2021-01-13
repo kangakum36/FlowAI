@@ -28,7 +28,7 @@ Next install requirements</br>
 ```
 pip3 install -r requirements.txt
 ```
-Finally, you have to install libomp for xgboost to work, 
+Finally, you have to install libomp for xgboost to work, on Mac this is:
 ```
 brew install libomp
 ```
@@ -37,15 +37,9 @@ brew install libomp
 ## Data Download
 Currently, the only way to get access to the data is by emailing me (kangakum [at] gmail [dot] com) for access to a gcp storage bucket.  Although we have deidentified the data so it contains no information about the patients, we are trying to be **extremely careful** in regulating access. </br>
 
-Once you have access, just run
-```
-brew install google-cloud-sdk
-```
-The installer will print some commands you should put in your bash profile or zsh config file, so that you can run ```gcloud``` commands from the command line.  It should look like: 
-```
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc)
-```
-Make sure you have successfully added ```gcloud``` to your path, and run
+Once you have access, install the google cloud sdk by following [these](https://cloud.google.com/sdk/docs/install) instructions. </br>
+Make sure to say yes when prompted to add ```gcloud``` to your path, as the data download script won't work otherwise. </br>
+Make sure you have successfully added ```gcloud``` to your path, and run </br>
 ```
 gcloud init
 ```
