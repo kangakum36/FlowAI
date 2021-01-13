@@ -38,8 +38,8 @@ brew install libomp
 Currently, the only way to get access to the data is by emailing me (kangakum [at] gmail [dot] com) for access to a gcp storage bucket.  Although we have deidentified the data so it contains no information about the patients, we are trying to be **extremely careful** in regulating access. </br>
 
 Once you have access, install the google cloud sdk by following [these](https://cloud.google.com/sdk/docs/install) instructions. </br>
-Make sure to say yes when prompted to add ```gcloud``` to your path, as the data download script won't work otherwise. </br>
-Make sure you have successfully added ```gcloud``` to your path, and run </br>
+Make sure to say yes when prompted to add ```gcloud``` to your PATH, as the data download script won't work otherwise. </br>
+Then run </br>
 ```
 gcloud init
 ```
@@ -48,7 +48,7 @@ Next run
 ```
 gcloud components update
 ```
-Finally, run the following commands (you must have the gcloud tools added to your path or the download data script will not run) </br>
+Finally, run the following commands (you must have gcloud added to your PATH) </br>
 ```
 chmod +x ./scripts/download_data.sh
 mkdir data
