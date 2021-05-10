@@ -41,7 +41,12 @@ if __name__ == "__main__":
         conv_dataset = dp.conv_dataset
 
 
+    print("done data process")
+    print(model_tag)
+
+
     if model_tag == 'rfc':
+        print("creating model")
         model = RandomForestModel(dataset, labels)
         model.train()
         accuracy = model.test()
@@ -69,5 +74,5 @@ if __name__ == "__main__":
 
 
 
-    # print("Selected model accuracy is: " + str(accuracy))
+    print("Selected model accuracy is: " + str(accuracy))
 
