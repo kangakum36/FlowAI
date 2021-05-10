@@ -1,10 +1,11 @@
 from models.base_model import BaseModel
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import Dropout
-from keras.layers import Conv1D
-from keras.layers import MaxPooling1D
-from keras.layers import Flatten
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.layers import Conv1D
+from tensorflow.keras.layers import MaxPooling1D
+from tensorflow.keras.layers import Flatten
 from sklearn.model_selection import StratifiedKFold
 import numpy as np
 
