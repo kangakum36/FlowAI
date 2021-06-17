@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.model_selection import KFold
 from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import cross_val_score, cross_validate
-from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score, classification_report
 from sklearn.model_selection import GridSearchCV
 import pickle
 
@@ -23,6 +23,7 @@ class XGB(BaseModel):
         y_pred = self.model.predict(self.X_test)
         predictions = [round(value) for value in y_pred]
         accuracy = accuracy_score(self.y_test, predictions)
+        print(classification_report(self.y_test, predictions))
         return accuracy
 
     def crossval(self):
